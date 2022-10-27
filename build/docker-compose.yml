@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  iotex-explorer:
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+    volumes:
+      - ./out:/home/nvm/app/generated
+    ports:
+      - 4004:4004
+    command: /bin/bash 
+    #Bug - Can't resolve './MutationObserver.js' in '/app/iotex-desktop-wallet/node_modules/mutationobserver-shim/dist' when running `run watch`

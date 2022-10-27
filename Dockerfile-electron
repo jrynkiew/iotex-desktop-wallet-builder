@@ -1,0 +1,32 @@
+FROM node:14.20.0-alpine3.15
+
+RUN apk update \
+    && apk upgrade \
+    && apk add \ 
+      git \
+      python2 \
+      bash \
+      make \
+      gcc \
+      libc-dev \
+      linux-headers \
+      eudev-dev \
+      libusb-dev \
+      g++
+
+RUN apk add vim
+
+COPY app/* /app/iotex-desktop-wallet/
+
+WORKDIR /app/iotex-desktop-wallet/src/electron
+
+RUN rm -r node_modules/ || true \
+    && rm package-lock.json || true \
+    && rm yarn.lock || true 
+
+RUN npm install --save babel-loader
+
+RUN npm install \
+    && npm run build
+
+CMD ["bash"]

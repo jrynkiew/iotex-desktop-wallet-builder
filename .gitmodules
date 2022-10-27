@@ -1,0 +1,3 @@
+[submodule "app/iotex-desktop-wallet"]
+	path = app/iotex-desktop-wallet
+	url = https://github.com/iotexproject/iotex-desktop-wallet.git
