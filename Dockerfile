@@ -83,8 +83,7 @@ RUN git clone -b master --single-branch https://github.com/jrynkiew/iotex-deskto
     npm install; \
     npm run build; \
     cd /usr/app/src/electron; \
-    npm install; \
-    npm run build:js
+    npm install;
     
 # Build application
 WORKDIR /usr/app/src/electron

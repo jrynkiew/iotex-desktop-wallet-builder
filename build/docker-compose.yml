@@ -6,7 +6,5 @@ services:
       context: ../
       dockerfile: Dockerfile
     volumes:
-      - ./out:/home/nvm/app/generated
-    volumes:
-      - $JRPC_iotex_wallet_builder/out:/usr/app/src/electron/dist
-    command: npm run build:electron
+      - $PWD/dist:/usr/app/src/electron/dist
+    command: npm run build
