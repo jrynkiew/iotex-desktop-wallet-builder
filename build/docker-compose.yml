@@ -1,10 +1,19 @@
 version: '3.3'
 
 services:
-  iotex-iopay-wallet-builder:
+  iotex-explorer-builder-ubuntu:
     build: 
       context: ../
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-Ubuntu
     volumes:
-      - $PWD/dist:/usr/app/src/electron/dist
-    command: npm run build
+      - $PWD/dist-ubuntu:/usr/app/src/electron/dist
+      - $PWD/build/entrypoint.sh:/usr/local/bin/entrypoint.sh
+    command: entrypoint.sh
+  iotex-explorer-builder-alpine:
+    build: 
+      context: ../
+      dockerfile: Dockerfile-Alpine
+    volumes:
+      - $PWD/dist-alpine:/usr/app/src/electron/dist
+      - $PWD/build/entrypoint.sh:/usr/local/bin/entrypoint.sh
+    command: entrypoint.sh
