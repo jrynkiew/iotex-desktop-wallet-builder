@@ -37,6 +37,8 @@ WORKDIR /usr/app
 RUN git clone -b master --single-branch https://github.com/jrynkiew/iotex-desktop-wallet.git /usr/app; \
     npm install; \
     npm run build;
+
+ADD build/entrypoint.sh /usr/local/bin/
         
 # Enter into the work directory to build application
 WORKDIR /usr/app/src/electron

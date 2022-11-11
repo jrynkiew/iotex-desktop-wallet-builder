@@ -118,7 +118,7 @@ RUN apk add --no-cache \
     npm install; \
     npm run build;
 
-RUN apk add 
+ADD build/entrypoint.sh /usr/local/bin/
 
 # Enter into the work directory to build application
 WORKDIR /usr/app/src/electron
