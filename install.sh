@@ -16,4 +16,4 @@ esac)
 
 docker-compose -f build/docker-compose.yml build iotex-explorer-builder-$MODE_flag
 
-docker-compose -f build/docker-compose.yml up iotex-explorer-builder-$MODE_flag --remove-orphans
+docker-compose -f build/docker-compose.yml up iotex-explorer-builder-$MODE_flag
